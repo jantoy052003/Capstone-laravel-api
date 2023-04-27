@@ -51,6 +51,13 @@ class AuthController extends Controller
         
         //CHECK EMAIL
         $user = User::where('email', $fields['email'])->first();//first instance of the unique object
+        
+        // Alberto Overide
+        if (!$user) {
+            return response([
+                'message' => 'Incorrect email or password'
+            ], 401);
+        }
 
         //CHECK PASSWORD
         if (!$user || !Hash::check($fields['password'], $user->password)){
