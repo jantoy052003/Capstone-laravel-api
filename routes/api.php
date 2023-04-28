@@ -19,7 +19,7 @@ use App\Http\Controllers\UserController;
 */
 
 //Public Routes
-Route::post('/register', [AuthController::class, 'register']);
+Route::post('/signup', [AuthController::class, 'signup']);
 Route::post('/login', [AuthController::class, 'login']);
 
 Route::get('/tasks', [TaskController::class, 'index']);

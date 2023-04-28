@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Hash;
 class AuthController extends Controller
 {
     //REGISTER
-    public function register(Request $request) {
+    public function signup(Request $request) {
         $fields = $request->validate([
             'name' => 'required|string',
             'email' => 'required|string|unique:users|email',
