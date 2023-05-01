@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Hash;
 class AuthController extends Controller
 {
     //REGISTER
-    public function signup(Request $request) {
+    public function register(Request $request) { // change to register to signup
         $fields = $request->validate([
             'name' => 'required|string',
             'email' => 'required|string|unique:users|email',
@@ -59,8 +59,8 @@ class AuthController extends Controller
             ], 401);
         }
 
-        //CHECK PASSWORD
-        if (!$user || !Hash::check($fields['password'], $user->password)){
+        //CHECK PASSWORD updated
+        if (!Hash::check($fields['password'], $user->password)){
             return response([
                 'message' => 'Incorrect Password'
             ], 401);
