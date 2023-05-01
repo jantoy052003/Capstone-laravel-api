@@ -11,17 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tasks', function (Blueprint $table) {
+        Schema::create('deleted__tasks', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id'); //for model relationship
-            // $table->string('image')->nullable(); Di naten need ng image dito e seseperate naten sya
+            $table->unsignedBigInteger('user_id');
             $table->string('task_title');
             $table->text('task_body');
             $table->date('task_start');
             $table->date('task_end');
             $table->timestamps();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade'); //for model relationship
-            
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
@@ -30,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tasks');
+        Schema::dropIfExists('deleted__tasks');
     }
 };

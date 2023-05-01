@@ -25,7 +25,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'profile_picture'
+        // 'profile_picture'
     ];
 
     /**
@@ -48,7 +48,7 @@ class User extends Authenticatable
     ];
 
     //One-to-many
-    public function tasks(): HasMany {
-        return $this->hasMany(Task::class);
-    }
+    // public function tasks(): HasMany {
+    //     return $this->hasMany(Task::class);
+    // }
 }
