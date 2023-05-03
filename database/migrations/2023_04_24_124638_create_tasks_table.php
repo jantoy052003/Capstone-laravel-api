@@ -17,8 +17,8 @@ return new class extends Migration
             // $table->string('image')->nullable(); Di naten need ng image dito e seseperate naten sya
             $table->string('task_title');
             $table->text('task_body');
-            $table->date('task_start');
-            $table->date('task_end');
+             $table->date('task_start')->nullable();
+            $table->date('task_end')->nullable();
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade'); //for model relationship
             
