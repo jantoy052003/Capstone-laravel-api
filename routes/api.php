@@ -7,6 +7,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\DeletedTaskController;
+use App\Http\Controllers\CompletedTaskController;
 
 
 /*
@@ -51,6 +52,11 @@ Route::group(['middleware' => ['auth:sanctum']], function() {
     Route::post('/tasks', [TaskController::class, 'store']);
     Route::put('/tasks/{id}', [TaskController::class, 'update']);
     Route::delete('/task/{id}', [TaskController::class, 'destroy']);
+
+    Route::delete('/task_complete/{id}', [CompletedTaskController::class, 'complete']);
+    Route::delete('/task_completed/{id}/complete', [CompletedTaskController::class, 'delete']);
+    Route::get('/task_completed', [CompletedTaskController::class, 'index']); //Jan added
+    Route::delete('/task_completed/complete_all', [CompletedTaskController::class, 'completeAll']);
 
     Route::get('/task_deleted', [DeletedTaskController::class, 'index']);
     Route::post('/task_deleted/{id}/restore', [DeletedTaskController::class, 'restore']);

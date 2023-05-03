@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Models\Task;
 use App\Models\Deleted_Task;
+use App\Models\Completed_Task;
 use App\Http\Resources\TaskResource;
 use App\Http\Resources\TaskShowResource;
 
