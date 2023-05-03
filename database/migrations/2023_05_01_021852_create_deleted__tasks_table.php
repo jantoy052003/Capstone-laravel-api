@@ -16,8 +16,8 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('task_title');
             $table->text('task_body');
-            $table->date('task_start');
-            $table->date('task_end');
+            $table->date('task_start')->nullable();
+            $table->date('task_end')->nullable();
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });

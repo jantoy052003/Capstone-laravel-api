@@ -78,18 +78,27 @@ class TaskController extends Controller
         $fields = $request->validate([
             'task_title' => 'required|string',
             'task_body' => 'required|string',
-            'task_start' => 'nullable|date_format:Y-m-d',
-            'task_end' => 'nullable|date_format:Y-m-d',
+            'task_start' => 'nullable|string|date_format:Y-m-d',
+            'task_end' => 'nullable|string|date_format:Y-m-d',
         ]);
+    
+        $taskStart = $fields['task_start'] ?? null;
+        $taskEnd = $fields['task_end'] ?? null;
 
         $task = Task::create([
             'user_id' => auth()->user()->id,
             'task_title' => $fields['task_title'],
             'task_body' => $fields['task_body'],
-            'task_start' => $fields['task_start'],
-            'task_end' => $fields['task_end'],
+            'task_start' => $taskStart,
+            'task_end' => $taskEnd,
         ]);
 
+        if (is_null($taskStart) && is_null($taskEnd)) {
+            return response([
+                'message' => 'It is recommended to set a start and end date for the task'
+            ], 200);
+        }
+        
         return response([
             'message' => 'Task has been created'
         ], 200);
@@ -173,7 +182,7 @@ class TaskController extends Controller
         $task->delete();
 
         return response([
-            'message' => 'Task has been deleted.'
+            'message' => 'Task has been moved to your archived.'
         ], 200);
     }
 
