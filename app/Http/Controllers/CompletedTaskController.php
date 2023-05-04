@@ -79,7 +79,7 @@ class CompletedTaskController extends Controller
         $task->delete();
 
         return response([
-            'message' => 'Task has been deleted.'
+            'message' => 'Task completed and moved to archived.'
         ], 200);
     }
 
