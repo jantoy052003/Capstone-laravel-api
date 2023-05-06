@@ -14,6 +14,7 @@ class Completed_Task extends Model
         'task_body',
         'task_start',
         'task_end',
+        'completed_at',
     ];
 
     public function user(): BelongsTo {

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->text('task_body');
             $table->date('task_start') ->nullable();
             $table->date('task_end')->nullable();
+            $table->date('completed_at')->nullable();
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
