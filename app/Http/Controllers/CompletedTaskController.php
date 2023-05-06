@@ -16,7 +16,7 @@ class CompletedTaskController extends Controller
     {
         $completed_task = Completed_Task::where('user_id', auth()->user()->id)
             ->orderBy('created_at', 'desc')
-            ->get(['id', 'task_title']);
+            ->get(['id', 'task_title', 'task_start', 'task_end', 'completed_at']);
 
         return response([
             'completed_task' => $completed_task
@@ -33,6 +33,7 @@ class CompletedTaskController extends Controller
             'task_body' => 'required|string',
             'task_start' => 'nullable|date_format:Y-m-d',
             'task_end' => 'nullable|date_format:Y-m-d',
+            'completed_at' => 'nullable|date_format:Y-m-d',
         ]);
 
         $completed_task = Completed_Task::create([
@@ -41,6 +42,7 @@ class CompletedTaskController extends Controller
             'task_body' => $fields['task_body'],
             'task_start' => $fields['task_start'],
             'task_end' => $fields['task_end'],
+            'completed_at' => $fields['completed_at'],
         ]);
     }
 
@@ -74,12 +76,13 @@ class CompletedTaskController extends Controller
         $deletedTask->task_start = $task->task_start;
         $deletedTask->task_end = $task->task_end;
         $deletedTask->user_id = auth()->user()->id;
+        $deletedTask->completed_at = now();
         $deletedTask->save();
 
         $task->delete();
 
         return response([
-            'message' => 'Task completed and moved to archived.'
+            'message' => "Congratulations! You've completed your task. Keep up the great work!"
         ], 200);
     }
 
@@ -106,7 +109,7 @@ class CompletedTaskController extends Controller
         Completed_Task::where('user_id', auth()->user()->id)->forceDelete();
 
         return response([
-            'message' => 'All tasks permanently deleted successfully.'
+            'message' => 'All achievements permanently deleted successfully.'
         ], 200);
     }
 }
