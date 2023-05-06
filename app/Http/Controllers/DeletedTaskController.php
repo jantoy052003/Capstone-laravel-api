@@ -16,7 +16,7 @@ class DeletedTaskController extends Controller
     {
         $deleted_task = Deleted_Task::where('user_id', auth()->user()->id)
                 ->orderBy('created_at', 'desc')
-                ->get(['id', 'task_title']);
+                ->get(['id', 'task_title', 'task_body', 'task_start', 'task_end']);
 
         return response([
             'deleted_task' => $deleted_task
