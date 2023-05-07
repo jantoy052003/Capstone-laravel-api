@@ -16,7 +16,7 @@ class CompletedTaskController extends Controller
     {
         $completed_task = Completed_Task::where('user_id', auth()->user()->id)
             ->orderBy('created_at', 'desc')
-            ->get(['id', 'task_title', 'task_start', 'task_end', 'completed_at']);
+            ->get(['id', 'task_title', 'task_body', 'task_start', 'task_end', 'completed_at']);
 
         return response([
             'completed_task' => $completed_task
@@ -97,7 +97,7 @@ class CompletedTaskController extends Controller
         $deleted_task->forceDelete();
 
         return response([
-            'message' => 'Task permanently deleted successfully.'
+            'message' => 'The achievement deleted successfully.'
         ], 200);
     }
 
