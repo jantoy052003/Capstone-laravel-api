@@ -63,6 +63,9 @@ Route::group(['middleware' => ['auth:sanctum']], function() {
     Route::delete('/task_deleted/{id}/delete', [DeletedTaskController::class, 'delete']);
     Route::post('/task_deleted/restore_all', [DeletedTaskController::class, 'restoreAll']);
     Route::delete('/task_deleted/delete_all', [DeletedTaskController::class, 'deleteAll']);
+
+    Route::get('/image/{userId}', [ImageController::class, 'getImage'])->where('userId', '[0-9]+');
+    Route::post('/upload/{userId}', [ImageController::class, 'upload']);
 });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
