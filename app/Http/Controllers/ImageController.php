@@ -24,10 +24,10 @@ class ImageController extends Controller
         $user->save();
 
         $response = [
-            'image_name' => $image_name
+            'message' => 'Upload successful',
         ];
 
-        return response($response, Response::HTTP_CREATED);
+        return response($response, 200);
     }
 
     public function getImage(Request $request, $userId) {
