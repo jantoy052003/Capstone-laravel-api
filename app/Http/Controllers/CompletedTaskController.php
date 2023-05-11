@@ -45,23 +45,7 @@ class CompletedTaskController extends Controller
             'completed_at' => $fields['completed_at'],
         ]);
     }
-
-    /**NO NEED
-     * Display the specified resource.
-     */
-    // public function show(string $id)
-    // {
-    //     //
-    // }
-
-    /**NO NEED
-     * Update the specified resource in storage.
-     */
-    // public function update(Request $request, string $id)
-    // {
-    //     //
-    // }
-
+    
     /**
      * Completes a task base on ID.
      */

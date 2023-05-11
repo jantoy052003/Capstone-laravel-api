@@ -10,14 +10,6 @@ use App\Models\User;
 class Task extends Model
 {
     use HasFactory;
-    // protected $fillable = [
-    //     'user_id',
-    //     'task_title',
-    //     'task_body',
-    //     'task_date',
-    //     'image'
-    // ];
-
     protected $fillable = [
         'user_id',
         'task_title',

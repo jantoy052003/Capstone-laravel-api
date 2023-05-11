@@ -15,14 +15,8 @@ class TaskController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index($task_id = null)  // from Request $request to $task_id = null
+    public function index($task_id = null)
     {
-        // $order = $request->query('order') ? $request->query('order') : 'asc'; //we can change the order from oldest task/upcoming tasks
-        
-        // return TaskResource::collection(Task::select('id', 'user_id', 'task_title', 'task_body', 'task_date', 'created_at', 'updated_at')
-        //     ->orderBy('task_date', $order)
-        //     ->paginate(5));
-
         if ($task_id) {
             $task = Task::where('id', $task_id)
                 ->where('user_id', auth()->user()->id)
@@ -58,23 +52,6 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        // $fields = $request->validate([
-        //     'task_title' => 'required | string',
-        //     'task_body' => 'required | string',
-        //     'task_date' => 'required',
-        //     'image' => 'nullable|string'
-        // ]);
-    
-        // $task = Task::create([
-        //     'user_id' => auth()->user()->id,
-        //     'task_title' => $fields['task_title'],
-        //     'task_body' => $fields['task_body'],
-        //     'task_date' => $fields['task_date'],
-        //     'image' => $fields['image'],
-        // ]);
-        //     return response($task, 201);
-        // return Task::create($request->all()); //this was used for testing without relationships
-
         $fields = $request->validate([
             'task_title' => 'required|string',
             'task_body' => 'required|string',
@@ -117,18 +94,6 @@ class TaskController extends Controller
      */
     public function update(Request $request, string $id)
     {   
-        // $fields = $request->validate([
-        //     'task_title' => 'required | string',
-        //     'task_body' => 'required | string',
-        //     'task_date' => 'required',
-        //     'image' => 'nullable|string'
-        // ]);
-
-        // $task = Task::find($id);
-        // $task->update($request->all());
-
-        // return response($task, 200);
-
         $task = Task::where('id', $id)
                 ->where('user_id', auth()->user()->id)
                 ->firstOrFail();
@@ -159,13 +124,6 @@ class TaskController extends Controller
      */
     public function destroy(string $id)
     {
-        // Task::destroy($id);
-
-        // $response = [
-        //     'message'=> "Task deleted"
-        // ];
-
-        // return response($response, 200);
         
         $task = Task::where('id', $id)
                 ->where('user_id', auth()->user()->id)
