@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id'); //for model relationship
-            // $table->string('image')->nullable(); Di naten need ng image dito e seseperate naten sya
             $table->string('task_title');
             $table->text('task_body');
              $table->date('task_start')->nullable();
