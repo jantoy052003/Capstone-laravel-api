@@ -18,7 +18,7 @@ ENV DB_PORT 5432
 ENV DB_DATABASE capstone_laravel_api_t9ez
 ENV DB_USERNAME capstone_laravel_api_t9ez_user
 ENV DB_PASSWORD JCDpwDHDbyEqyDjnMwNu6plhIB20Y3I1
-ENV LOG_CHANNEL stderr
+# ENV LOG_CHANNEL stderr
 
 # Allow composer to run as root
 ENV COMPOSER_ALLOW_SUPERUSER 1
