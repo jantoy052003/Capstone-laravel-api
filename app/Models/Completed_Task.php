@@ -17,7 +17,8 @@ class Completed_Task extends Model
         'completed_at',
     ];
 
-    public function user(): BelongsTo {
+    public function user(): BelongsTo
+    {
         return $this->belongsto(User::class);
-    } 
+    }
 }

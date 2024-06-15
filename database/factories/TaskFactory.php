@@ -2,8 +2,8 @@
 
 namespace Database\Factories;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\User;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
@@ -18,11 +18,11 @@ class TaskFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id' => fake()->randomElement(User::pluck('id')),
+            'user_id'    => fake()->randomElement(User::pluck('id')),
             'task_title' => fake()->realText($maxNbChars = 30),
-            'task_body' => fake()->realText($maxNbChars = 100),
-            'task_date' => fake()->date($format = 'Y-m-d', $max = 'now'),
-            'image' => '1682508964.jpg'
+            'task_body'  => fake()->realText($maxNbChars = 100),
+            'task_date'  => fake()->date($format = 'Y-m-d', $max = 'now'),
+            'image'      => '1682508964.jpg',
         ];
     }
 }

@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class() extends Migration {
     /**
      * Run the migrations.
      */
@@ -16,7 +15,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('task_title');
             $table->text('task_body');
-            $table->date('task_start') ->nullable();
+            $table->date('task_start')->nullable();
             $table->date('task_end')->nullable();
             $table->date('completed_at')->nullable();
             $table->timestamps();

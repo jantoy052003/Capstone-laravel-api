@@ -16,7 +16,8 @@ class Deleted_Task extends Model
         'task_end',
     ];
 
-    public function user(): BelongsTo {
+    public function user(): BelongsTo
+    {
         return $this->belongsto(User::class);
-    } 
+    }
 }
