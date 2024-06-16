@@ -13,11 +13,11 @@ ENV REAL_IP_HEADER 1
 ENV APP_ENV production
 ENV APP_DEBUG false
 ENV DB_CONNECTION pgsql
-ENV DB_HOST dpg-cpmohi88fa8c73almbd0-a
-ENV DB_PORT 5432
-ENV DB_DATABASE capstone_laravel_api_p20d
-ENV DB_USERNAME root
-ENV DB_PASSWORD 1XGZNrYMh64MCMfnn63xNC6XNOar1Cxq
+ENV DB_HOST monorail.proxy.rlwy.net
+ENV DB_PORT 16656
+ENV DB_DATABASE capstone_laravel_api
+ENV DB_USERNAME postgres
+ENV DB_PASSWORD awtRKMZFwDZgmjQPktuHWjjVnofWNHpQ
 
 # Allow composer to run as root
 ENV COMPOSER_ALLOW_SUPERUSER 1
